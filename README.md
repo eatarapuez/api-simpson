@@ -1,6 +1,6 @@
 # Redbee Challenge - Simpsons Quotes API
 
-![homer-console](images/homer-simpson.gif)
+![homer-console](simpsons-quotes/images/homer-simpson.gif)
 
 ## Enunciado
 
