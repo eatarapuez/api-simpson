@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-simpson
+spec:
+  selector:
+    matchLabels:
+      app: api-simpson
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: api-simpson
+    spec:
+      containers:
+      - image: alejot2012/api-simpson:2
+        name: api-simpson
+        env:
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: pass-db-secret
+              key: password
+        - name: DB_HOST
+          value: simpsons-mysql
+        - name: DB_PORT
+          value: '3306'
+        - name: DB_USER
+          value: root
+        ports:
+        - containerPort: 8000
