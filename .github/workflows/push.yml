@@ -1,0 +1,32 @@
+name: Run on Push
+
+# Disparador: Se ejecuta cuando se hace push al repositorio
+on:
+  push:
+    branches:
+      - main  # Puedes especificar otras ramas como 'develop' o usar '*' para todas las ramas
+
+jobs:
+  build:
+    name: Build and Test on Push
+    runs-on: ubuntu-latest  # Usa un runner GitHub-hosted
+    
+    steps:
+      # Paso 1: Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      # Paso 2: Configurar el entorno de Node.js (ejemplo)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Paso 3: Instalar dependencias
+      - name: Install dependencies
+        run: npm install
+
+      # Paso 4: Ejecutar pruebas
+      - name: Run tests
+        run: npm test
+
