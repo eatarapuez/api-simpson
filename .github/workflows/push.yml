@@ -4,7 +4,7 @@ name: Run on Push
 on:
   push:
     branches:
-      - main  # Puedes especificar otras ramas como 'develop' o usar '*' para todas las ramas
+      - '*'  # Puedes especificar otras ramas como 'develop' o usar '*' para todas las ramas
 
 jobs:
   build:
